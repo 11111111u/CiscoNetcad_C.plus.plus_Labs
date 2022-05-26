@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 
@@ -5,26 +6,39 @@ using namespace std;
 
 class Person
 {
-public:
-  string name;
-  int age;
-  string lastName;
+	public:
+		string name;
+		int age;
+		string lastName;
 };
-
+string FirstLastName(Person* person)
+{
+	return person->name + " " + person->lastName;
+}
 void print(Person* person)
 {
-  cout << person->name << " is " person->age << " years old" << endl;
+	cout << FirstLastName(person) << "is " << person->age << " years old" << endl;
 }
+
 
 int main()
 {
-  Person person;
-  person.name = "Harry";
-  person.age = 23;
-  
-  cout << "Meet " << person.name();
-  print(&person);
-  printf("\n");
-  
-  return 0;
+	Person person;
+	person.name = "Harry";
+	person.age = 23;
+	
+	cout << "Meet " << person.name << "\n";
+	print(&person);
+	printf("\n");
+
+	return 0;
 }
+
+============================================================
+Meet Harry
+Harry is 23 years old
+
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.
