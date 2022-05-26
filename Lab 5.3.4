@@ -102,6 +102,7 @@ void Gym::cancel(int id, vector<Gym*> &vector)
 
 int main()
 {
+	cout << "\n WELCOME \n";
 	vector<Gym*> gyms;
 	string command;
 	int id;
@@ -109,22 +110,22 @@ int main()
 	int monthCount;
 	while (true)
 	{
-		cout << "Enter command: ";
+		cout << "\nEnter command: ";
 		cin >> command;
 		if (command == "quit")
 			break;
-		cout << "Enter the id: ";
+		cout << "\nEnter the id: ";
 		cin >> id;
 		if (command == "create")
 		{
-			cout << "Enter the name: ";
+			cout << "\nEnter the name: ";
 			cin.ignore();
 			cin.getline(name, sizeof(name));
 			Gym* gym = Gym::create(id, string(name), gyms);
 		}
 		else if (command == "extend")
 		{
-			cout << "Enter a count of months: ";
+			cout << "\nEnter a count of months: ";
 			cin >> monthCount;
 			Gym::extend(id, monthCount, gyms);
 		}
@@ -142,9 +143,49 @@ int main()
 		}
 		int index = select(gyms, id);
 		if (index != -1)
-			cout << "Member " << id << " : " << name << ", subscription valid for " << gyms[index]->get_countMonth() << " months \n";
+			cout << "\nMember " << id << " : " << name << ", subscription valid for " << gyms[index]->get_countMonth() << " months \n";
 	}
 
 	return 0;
 }
 ==========================================================
+
+ WELCOME 
+
+Enter command: create 7 John Doe
+
+Enter the id: 
+Enter the name: 
+Member 7 : John Doe, subscription valid for 0 months 
+
+Enter command: create 8 Jane Doe
+
+Enter the id: 
+Enter the name: 
+Member 8 : Jane Doe, subscription valid for 0 months 
+
+Enter command: extend 7 6
+
+Enter the id: 
+Enter a count of months: 
+Member 7 : Jane Doe, subscription valid for 6 months 
+
+Enter command: extend 8 12
+
+Enter the id: 
+Enter a count of months: 
+Member 8 : Jane Doe, subscription valid for 12 months 
+
+Enter command: cancel 8
+
+Enter the id: 
+Member 8 : Jane Doe, subscription valid for 0 months 
+
+Enter command: delete 7
+
+Enter the id: 
+Enter command: quit
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.
