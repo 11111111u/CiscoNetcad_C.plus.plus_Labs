@@ -10,10 +10,12 @@ class Person
 		int age;
 		string lastName;
 };
+
 string FirstLastName(Person* person)
 {
 	return person->name + " " + person->lastName;
 }
+
 void print(Person* person)
 {
 	cout << FirstLastName(person) << "is " << person->age << " years old" << endl;
@@ -28,12 +30,12 @@ int main()
 
 	cout << "Meet " << person.name << "\n";
 	print(&person);
+	
 	printf("\n");
 
 	return 0;
 }
-
-============================================================
+==========================================================
 Meet Harry
 Harry is 23 years old
 
